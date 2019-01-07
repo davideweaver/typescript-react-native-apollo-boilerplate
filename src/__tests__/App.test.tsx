@@ -6,7 +6,6 @@ import App from '../App';
 describe('App', () => {
 
     it('snapshot test', async () => {
-
         const tree = renderer.create(
             <App />,
         ).toJSON();
