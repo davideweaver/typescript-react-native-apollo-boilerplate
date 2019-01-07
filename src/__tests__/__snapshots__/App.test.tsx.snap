@@ -78,7 +78,7 @@ exports[`App snapshot test 1`] = `
               }
             >
               <Text>
-                Hello
+                Christmas was 13 days ago
               </Text>
             </View>
           </View>

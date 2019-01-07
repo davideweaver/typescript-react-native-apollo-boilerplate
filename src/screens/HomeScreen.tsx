@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import datetime from '../lib/datetime';
+
 class HomeScreen extends React.Component {
 
     public static navigationOptions = {
@@ -8,9 +10,10 @@ class HomeScreen extends React.Component {
     };
 
     public render() {
+        const sinceChristmas = datetime.formatTimeSince(new Date('2018-12-25'));
         return (
             <View style={styles.container}>
-                <Text>Hello</Text>
+                <Text>{`Christmas was ${sinceChristmas} ago`}</Text>
             </View>
         );
     }
