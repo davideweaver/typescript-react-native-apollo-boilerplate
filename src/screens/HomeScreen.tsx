@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
-import datetime from '../lib/datetime';
+import NewPost from '../components/NewPost';
+import PostList from '../components/PostList';
 
 class HomeScreen extends React.Component {
 
@@ -10,10 +11,10 @@ class HomeScreen extends React.Component {
     };
 
     public render() {
-        const sinceChristmas = datetime.formatTimeSince(new Date('2018-12-25'));
         return (
             <View style={styles.container}>
-                <Text>{`Christmas was ${sinceChristmas} ago`}</Text>
+                <NewPost title='' />
+                <PostList />
             </View>
         );
     }
