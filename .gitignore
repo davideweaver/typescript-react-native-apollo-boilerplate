@@ -57,3 +57,6 @@ buck-out/
 
 # VSCode
 .vscode
+
+# Generated graphql types
+src/__generated__
