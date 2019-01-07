@@ -1,0 +1,28 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "rules": {
+        "arrow-parens": false,
+        "no-any": true,
+        "no-empty-interface": false,
+        "quotemark": [
+            true,
+            "single"
+        ],
+        "variable-name": [
+            true,
+            "ban-keywords",
+            "check-format",
+            "allow-pascal-case",
+            "allow-leading-underscore"
+        ],
+        "object-literal-sort-keys": false
+    },
+    "linterOptions": {
+        "exclude": [
+            "src/__generated__/*"
+        ]
+    }
+}
