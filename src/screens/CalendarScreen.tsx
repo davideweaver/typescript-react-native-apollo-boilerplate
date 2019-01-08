@@ -35,6 +35,10 @@ class CalendarScreen extends React.Component<IProps, IState> {
                     title='Add Booking'
                     onPress={() => navigation.navigate('AddBooking')}
                 />
+                <Button
+                    title='Open Drawer'
+                    onPress={() => navigation.openDrawer()}
+                />
                 <PostList />
             </View>
         );

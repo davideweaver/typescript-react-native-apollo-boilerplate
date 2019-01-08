@@ -1,10 +1,18 @@
-import { createAppContainer, createDrawerNavigator, createStackNavigator } from 'react-navigation';
+import {
+    createAppContainer,
+    createDrawerNavigator,
+    createStackNavigator,
+    createSwitchNavigator,
+} from 'react-navigation';
 
 import AddBookingScreen from '../screens/AddBookingScreen';
 import AppointmentScreen from '../screens/AppointmentScreen';
 import BookingsScreen from '../screens/BookingsScreen';
 import CalendarScreen from '../screens/CalendarScreen';
+import LoadingScreen from '../screens/LoadingScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import SigninScreen from '../screens/SigninScreen';
+import Drawer from './Drawer';
 
 const CalendarStack = createStackNavigator(
     {
@@ -17,15 +25,6 @@ const CalendarStack = createStackNavigator(
     },
     {
         initialRouteName: 'Calendar',
-        defaultNavigationOptions: {
-            headerStyle: {
-                backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        },
     },
 );
 
@@ -40,15 +39,6 @@ const BookingsStack = createStackNavigator(
     },
     {
         initialRouteName: 'Bookings',
-        defaultNavigationOptions: {
-            headerStyle: {
-                backgroundColor: 'blue',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            },
-        },
     },
 );
 
@@ -75,6 +65,9 @@ const MainStack = createDrawerNavigator(
             screen: ProfileStack,
         },
     },
+    {
+        contentComponent: Drawer,
+    },
 );
 
 const AddBookingStack = createStackNavigator(
@@ -88,7 +81,15 @@ const AddBookingStack = createStackNavigator(
     },
 );
 
-const AppNavigator = createStackNavigator(
+const AuthStack = createStackNavigator(
+    {
+        Signin: {
+            screen: SigninScreen,
+        },
+    },
+);
+
+const AppStack = createStackNavigator(
     {
         Main: {
             screen: MainStack,
@@ -98,8 +99,26 @@ const AppNavigator = createStackNavigator(
         },
     },
     {
+        initialRouteName: 'Main',
         mode: 'modal',
         headerMode: 'none',
+    },
+);
+
+const AppNavigator = createSwitchNavigator(
+    {
+        Loading: {
+            screen: LoadingScreen,
+        },
+        App: {
+            screen: AppStack,
+        },
+        Auth: {
+            screen: AuthStack,
+        },
+    },
+    {
+        initialRouteName: 'Loading',
     },
 );
 
