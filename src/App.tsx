@@ -17,10 +17,10 @@ const client = new ApolloClient({
 interface IProps {
 }
 
-interface IStates {
+interface IState {
 }
 
-export default class App extends Component<IProps, IStates> {
+class App extends Component<IProps, IState> {
     public render() {
         return (
             <ApolloProvider client={client}>
@@ -38,3 +38,5 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 });
+
+export default App;
