@@ -1,20 +1,22 @@
-import { createAppContainer, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createDrawerNavigator, createStackNavigator } from 'react-navigation';
 
+import AddBookingScreen from '../screens/AddBookingScreen';
 import AppointmentScreen from '../screens/AppointmentScreen';
-import BookingScreen from '../screens/BookingScreen';
-import HomeScreen from '../screens/HomeScreen';
+import BookingsScreen from '../screens/BookingsScreen';
+import CalendarScreen from '../screens/CalendarScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
-const MainStack = createStackNavigator(
+const CalendarStack = createStackNavigator(
     {
-        Home: {
-            screen: HomeScreen,
+        Calendar: {
+            screen: CalendarScreen,
         },
         Appointment: {
             screen: AppointmentScreen,
         },
     },
     {
-        initialRouteName: 'Home',
+        initialRouteName: 'Calendar',
         defaultNavigationOptions: {
             headerStyle: {
                 backgroundColor: '#f4511e',
@@ -27,14 +29,62 @@ const MainStack = createStackNavigator(
     },
 );
 
-const BookingStack = createStackNavigator(
+const BookingsStack = createStackNavigator(
     {
-        Booking: {
-            screen: BookingScreen,
+        Bookings: {
+            screen: BookingsScreen,
+        },
+        Appointment: {
+            screen: AppointmentScreen,
         },
     },
     {
-        initialRouteName: 'Booking',
+        initialRouteName: 'Bookings',
+        defaultNavigationOptions: {
+            headerStyle: {
+                backgroundColor: 'blue',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold',
+            },
+        },
+    },
+);
+
+const ProfileStack = createStackNavigator(
+    {
+        Profile: {
+            screen: ProfileScreen,
+        },
+    },
+    {
+        initialRouteName: 'Profile',
+    },
+);
+
+const MainStack = createDrawerNavigator(
+    {
+        Calendar: {
+            screen: CalendarStack,
+        },
+        Bookings: {
+            screen: BookingsStack,
+        },
+        Profile: {
+            screen: ProfileStack,
+        },
+    },
+);
+
+const AddBookingStack = createStackNavigator(
+    {
+        AddBooking: {
+            screen: AddBookingScreen,
+        },
+    },
+    {
+        initialRouteName: 'AddBooking',
     },
 );
 
@@ -43,8 +93,8 @@ const AppNavigator = createStackNavigator(
         Main: {
             screen: MainStack,
         },
-        Booking: {
-            screen: BookingStack,
+        AddBooking: {
+            screen: AddBookingStack,
         },
     },
     {

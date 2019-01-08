@@ -15,10 +15,10 @@ interface IProps {
 interface IState {
 }
 
-class HomeScreen extends React.Component<IProps, IState> {
+class CalendarScreen extends React.Component<IProps, IState> {
 
     public static navigationOptions = {
-        title: 'HomeScreen',
+        title: 'CalendarScreen',
     };
 
     public render() {
@@ -32,8 +32,8 @@ class HomeScreen extends React.Component<IProps, IState> {
                     onPress={() => navigation.navigate('Appointment', { itemId: 86, otherParam: 'First Details' })}
                 />
                 <Button
-                    title='Go to Booking'
-                    onPress={() => navigation.navigate('Booking')}
+                    title='Add Booking'
+                    onPress={() => navigation.navigate('AddBooking')}
                 />
                 <PostList />
             </View>
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default CalendarScreen;

@@ -3,10 +3,9 @@ import { addMockFunctionsToSchema, makeExecutableSchema } from 'graphql-tools';
 import { buildClientSchema, printSchema } from 'graphql/utilities';
 
 import * as fakerSchema from '../__generated__/blogServer.schema.json';
+import config from '../lib/config';
 
-// tslint:disable-next-line:no-any
-declare let window: any;
-export const isMocked = window.__TEST__ === true;
+export const isMocked = config.env === 'test' || config.env === 'dev';
 
 const posts = [{
     createdAt: '2018-12-05T19:36:50.294Z',

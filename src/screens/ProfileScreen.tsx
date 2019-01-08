@@ -12,16 +12,16 @@ interface IProps {
 interface IState {
 }
 
-class BookingScreen extends React.Component<IProps, IState> {
+class ProfileScreen extends React.Component<IProps, IState> {
 
     public static navigationOptions = {
-        title: 'BookingScreen',
+        title: 'ProfileScreen',
     };
 
     public render() {
         return (
             <View style={styles.container}>
-                <Text>BookingScreen</Text>
+                <Text>ProfileScreen</Text>
             </View>
         );
     }
@@ -35,4 +35,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default BookingScreen;
+export default ProfileScreen;
