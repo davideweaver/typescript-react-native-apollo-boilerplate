@@ -25,6 +25,7 @@ const CalendarStack = createStackNavigator(
     },
     {
         initialRouteName: 'Calendar',
+        headerMode: 'screen',
     },
 );
 
@@ -39,6 +40,7 @@ const BookingsStack = createStackNavigator(
     },
     {
         initialRouteName: 'Bookings',
+        headerMode: 'screen',
     },
 );
 

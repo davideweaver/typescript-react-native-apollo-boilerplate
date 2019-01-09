@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import { AsyncStorage, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { AsyncStorage, ScrollView, StyleSheet, View } from 'react-native';
 import { DrawerItemsProps } from 'react-navigation';
+
+import DrawerLink from './DrawerLink';
 
 interface IProps extends DrawerItemsProps {
 }
@@ -13,26 +15,24 @@ class Drawer extends Component<IProps, IState> {
     public render() {
         return (
             <View style={styles.container}>
-                <View style={styles.headerContainer}>
-                    <Text
-                        style={styles.navItemStyle}
-                        onPress={() => this.signOutAsync()}>
-                        Log Out
-                    </Text>
-                </View>
                 <ScrollView>
                     <View>
-                        <View style={styles.navSectionStyle}>
-                            <Text
-                                style={styles.navItemStyle}
-                                onPress={() => this.navigateToScreen('Calendar')}>
-                                My Calendar
-                            </Text>
-                            <Text
-                                style={styles.navItemStyle}
-                                onPress={() => this.navigateToScreen('Bookings')}>
-                                Manage Bookings
-                            </Text>
+                        <View style={styles.links}>
+                            <DrawerLink
+                                title='Log Out'
+                                onPress={() => this.signOutAsync()}
+                                active={false}
+                            />
+                            <DrawerLink
+                                title='My Calendar'
+                                onPress={() => this.navigateToScreen('Calendar')}
+                                active={this.props.activeItemKey === 'Calendar'}
+                            />
+                            <DrawerLink
+                                title='Manage Bookings'
+                                onPress={() => this.navigateToScreen('Bookings')}
+                                active={this.props.activeItemKey === 'Bookings'}
+                            />
                         </View>
                     </View>
                 </ScrollView>
@@ -57,13 +57,7 @@ const styles = StyleSheet.create({
         padding: 15,
         paddingTop: 50,
     },
-    navItemStyle: {
-        padding: 10,
-    },
-    navSectionStyle: {
-    },
-    headerContainer: {
-        backgroundColor: 'lightgrey',
+    links: {
     },
 });
 

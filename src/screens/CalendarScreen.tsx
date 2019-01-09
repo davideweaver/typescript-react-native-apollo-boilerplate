@@ -1,9 +1,7 @@
 import * as React from 'react';
-import { Button, StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationParams, NavigationScreenProp } from 'react-navigation';
-
-import NewPost from '../components/NewPost';
-import PostList from '../components/PostList';
 
 interface INavigationParams extends NavigationParams {
 }
@@ -17,16 +15,22 @@ interface IState {
 
 class CalendarScreen extends React.Component<IProps, IState> {
 
-    public static navigationOptions = {
-        title: 'CalendarScreen',
-    };
+    public static navigationOptions = ({ navigation }: { navigation: NavigationScreenProp<{}> }) => {
+        return {
+            title: 'My Calendar',
+            headerLeft: (
+                <TouchableOpacity onPress={() => navigation.openDrawer()}>
+                    <Icon name='menu' size={30} />
+                </TouchableOpacity>
+            ),
+        };
+    }
 
     public render() {
         const { navigation } = this.props;
 
         return (
             <View style={styles.container}>
-                <NewPost title='' />
                 <Button
                     title='Go to Appointment'
                     onPress={() => navigation.navigate('Appointment', { itemId: 86, otherParam: 'First Details' })}
@@ -35,11 +39,6 @@ class CalendarScreen extends React.Component<IProps, IState> {
                     title='Add Booking'
                     onPress={() => navigation.navigate('AddBooking')}
                 />
-                <Button
-                    title='Open Drawer'
-                    onPress={() => navigation.openDrawer()}
-                />
-                <PostList />
             </View>
         );
     }

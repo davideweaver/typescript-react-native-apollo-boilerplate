@@ -5,6 +5,7 @@
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start",
         "android": "react-native run-android",
+        "android-emulator": "(cd $ANDROID_HOME/tools; emulator -avd Pixel_API_23); npm run android",
         "ios": "react-native run-ios",
         "test": "npm run tslint && npm run tsc-test && npm run jest",
         "tslint": "tslint --project .",
@@ -25,6 +26,7 @@
         "react-apollo": "^2.3.3",
         "react-native": "0.57.8",
         "react-native-gesture-handler": "^1.0.12",
+        "react-native-vector-icons": "^6.1.0",
         "react-navigation": "^3.0.9"
     },
     "devDependencies": {
@@ -32,6 +34,7 @@
         "@types/jest": "^23.3.12",
         "@types/react": "^16.7.18",
         "@types/react-native": "^0.57.25",
+        "@types/react-native-vector-icons": "^4.6.4",
         "@types/react-navigation": "^3.0.1",
         "@types/react-test-renderer": "^16.0.3",
         "babel-core": "^6.26.3",

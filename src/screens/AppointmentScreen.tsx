@@ -27,7 +27,6 @@ class AppointmentScreen extends React.Component<IProps, IState> {
 
         return (
             <View style={styles.container}>
-                <Text>Appointment Screen</Text>
                 <Text>itemId: {JSON.stringify(itemId)}</Text>
                 <Text>otherParam: {JSON.stringify(otherParam)}</Text>
             </View>

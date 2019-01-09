@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationParams, NavigationScreenProp } from 'react-navigation';
 
 interface INavigationParams extends NavigationParams {
@@ -14,9 +15,16 @@ interface IState {
 
 class AddBookingScreen extends React.Component<IProps, IState> {
 
-    public static navigationOptions = {
-        title: 'Add Booking',
-    };
+    public static navigationOptions = ({ navigation }: { navigation: NavigationScreenProp<{}> }) => {
+        return {
+            title: 'Add Booking',
+            headerLeft: (
+                <TouchableOpacity onPress={() => navigation.dismiss()}>
+                    <Icon name='close' size={30} />
+                </TouchableOpacity>
+            ),
+        };
+    }
 
     public render() {
         return (
